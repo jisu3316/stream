@@ -126,9 +126,22 @@ class Main {
                 })
                 .forEach(s -> System.out.println("forEach2: " + s));
     }
+
+    /**
+     * reduce
+     * Reduce는 누산기(Accumulator)와 연산(Operation)으로 컬렉션에 있는 값을 처리하여 더 작은 컬렉션이나 단일 값을 만드는 작업이다.
+     * 예를 들어 다음과 같이 List<Integer>에서 총합을 구하는 연산은 sum 함수 말고 reduce로 처리할 수 있다.
+     */
+    public void reduceAccumulator() {
+        OptionalInt reduced = IntStream.range(1, 4) // [1, 2, 3]
+                .reduce((a, b) -> {
+                    return Integer.sum(a, b);
+                });
+        System.out.println("reduced = " + reduced);
+    }
     public static void main(String[] args){
 
-        new Main().streamAPI2();
+        new Main().reduceAccumulator();
     }
 
     static class Outer {
